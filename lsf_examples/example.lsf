@@ -1,0 +1,94 @@
+addfdtd;
+set("dimension",2);  #  1 = 2D, 2 = 3D
+set("x",0);
+set("x span",1e-6);
+set("y",0);
+set("y span",2e-7);
+set("z",0);
+set("z span",2e-7);
+#set periodic boundary conditions
+set("y min bc", "periodic");
+set("z min bc", "periodic");
+#max are automatically set
+
+
+addrect;
+set("name","new_rectangle");
+set("x",2.5e-7);
+set("x span",5e-7);
+set("x min",0);
+set("x max",5e-7);
+set("y",0);
+set("y span",2e-7);
+set("z",0);
+set("z span",2e-7);
+set("material","Ag (Silver) - Johnson and Christy");
+
+addrect;
+set("name", "new_rectangle2");
+set("x",-5e-8);
+set("x span",1e-7);
+set("x min",-1e-7);
+set("x max",0);
+set("y",0);
+set("y span",2e-7);
+set("z", 0);
+set("z span",2e-7);
+set("material","SiO2 (Glass) - Palik");
+
+addrect;
+set("name", "new_rect2");
+set("x", -1.25e-7);
+set("x span",5e-8);
+set("x min",-1.5e-7);
+set("x max",-1e-7);
+set("y",0);
+set("y span",1e-7);
+set("z",0);
+set("z span",1e-7);
+set("material","Au (Gold) - Johnson and Christy");
+
+addpower;
+set("name","field_profile");
+set("monitor type",5);  # 5: 2D x-normal 6: 2D y-normal 7: 2D z-normal
+set("x",-4.5e-7);
+set("y",0);
+set("y span",2e-7);
+set("z",0);
+set("z span",2e-7);
+
+addplane;
+set("injection axis", "x");
+set("direction", "forward");
+set("x",-4e-7);
+set("y",0);
+set("y span",2e-7);
+set("z",0);
+set("z span",2e-7);
+set("wavelength start", 2e-7);
+set("wavelength stop", 7e-7);
+
+addmovie;
+set("name","movie_1");
+set("monitor type",3);  # 1 = 2D x-normal,  2 = 2D y-normal,  3 = 2D z-normal
+set("x",0);
+set("x span",5e-6);
+set("y",0);
+set("y span",5e-6);
+set("z",0);
+set("lock aspect ratio",1);
+set("horizontal resolution",240);
+
+plot(
+
+
+#addmesh;
+#set("name", "wave_guide");
+#set("override x mesh", 1e-9);
+#set("override y mesh", 0);
+#set("override z mesh", 0);
+#set("set maximum mesh step", 1e-9);
+#set("dx", 2e-7)
+
+
+run;
