@@ -1,0 +1,53 @@
+#addfdtd;
+#set("dimension",2);  #  1 = 2D, 2 = 3D
+#set("x",0);
+#set("x span",2e-5);
+#set("y",0);
+#set("y span",2e-5);
+#set("z",0);
+#set("z span",1e-5);
+#set periodic boundary conditions (if there's any)
+
+#definitions
+freq_p = ;
+linewidth_p = ;
+g =;
+
+freq_e=;
+linewidth_e;
+
+trans_int =;
+incident_int=;
+
+extinct=1-(trans_int/incident_int)
+
+addcircle;
+set("name", "disk");
+set("x",2e-6);
+set("y",2e-6);
+set("radius",5e-6);
+set("z",0);
+set("z span",1e-6);
+set("material", "Ag (Silver) - Palik (0-2um)");
+
+addcircle;
+set("name","cover");
+set("x",2e-6);
+set("y",2e-6);
+set("radius",5e-6);
+set("z",0.5e-6);
+set("z span",5e-11);
+
+#excinction - wavelength graph
+setplot("y min",);
+setplot("y max",);
+setplot("x min",);
+setplot("y min",);
+
+
+
+plot(extinct,wavelength,
+#addlayerbuilder;
+#addlayer("layer_1");
+#setlayer("layer_1","thickness",500e-9);
+#setlayer("layer_1","material","Si (Silicon) - Palik");
