@@ -1,12 +1,34 @@
-#addfdtd;
-#set("dimension",2);  #  1 = 2D, 2 = 3D
-#set("x",0);
-#set("x span",2e-5);
-#set("y",0);
-#set("y span",2e-5);
-#set("z",0);
-#set("z span",1e-5);
-#set periodic boundary conditions (if there's any)
+addfdtd;
+set("dimension",2);  #  1 = 2D, 2 = 3D
+set("x",0);
+set("x span",2e-5);
+set("y",0);
+set("y span",2e-5);
+set("z",0);
+set("z span",1e-5);
+# set periodic boundary conditions (if there's any)
+
+if(getresult("FDTD","status")==0) {
+  run;
+}
+# to avoid "simulation already running"?
+
+# we set true the ones we want to perform
+do_polar_plot = true;
+do_cross_sections = true;
+do_field_enhancement = false; #?
+
+addtfsf;
+set("injection axis", "z");
+set("direction", "forward");
+set("x", );
+set("x span", );
+set("y", );
+set("y span", );
+set("z", );
+set("z span", );
+set("wavelength start", );
+set("wavelength stop", );
 
 #definitions
 freq_p = ;
@@ -38,7 +60,14 @@ set("radius",5e-6);
 set("z",0.5e-6);
 set("z span",5e-11);
 
-#excinction - wavelength graph
+transmission = getresult("transmission_monitor", "T")
+reflection = getresult("reflection_monitor", "R")
+wavelength = transmission.wavelength
+
+absorption = 1 - transmission.T - reflection.R
+
+plot(wavelength, absorption, "wavelength", "absorption", "absorption spectrum") #?
+# excinction - wavelength graph => extinction = (absorbtion+scattering)
 setplot("y min",);
 setplot("y max",);
 setplot("x min",);
