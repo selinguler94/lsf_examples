@@ -52,6 +52,13 @@ set("z",0);
 set("z span",1e-6);
 set("material", "Ag (Silver) - Palik (0-2um)");
 
+#J-Aggregate
+
+new_material = addmaterial('Dielectric');
+setmaterial('new_material','name','J-aggregate');
+setmaterial('new_material','refractive_index',1.5);
+setmaterial('new_material',' );
+
 addcircle;
 set("name","cover");
 set("x",2e-6);
@@ -59,6 +66,8 @@ set("y",2e-6);
 set("radius",5e-6);
 set("z",0.5e-6);
 set("z span",5e-11);
+
+set("cover", "material", "J-aggregate");
 
 transmission = getresult("transmission_monitor", "T")
 reflection = getresult("reflection_monitor", "R")
