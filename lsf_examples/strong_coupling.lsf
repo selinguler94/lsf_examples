@@ -83,7 +83,7 @@ transmission = getresult("transmission", "T")
 reflection = getresult("reflection", "T")
 wavelength = transmission.wavelength
 
-absorption = 1 - transmission.T - reflection.T
+absorption = 1 - transmission.T - reflection.T # ?incident - transmission - reflection
 
 plot(wavelength, absorption, "wavelength", "absorption", "absorption spectrum") #?
 # excinction - wavelength graph => extinction = (absorbtion+scattering)
