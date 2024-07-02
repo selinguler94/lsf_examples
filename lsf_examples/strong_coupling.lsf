@@ -69,11 +69,21 @@ set("z span",5e-11);
 
 set("cover", "material", "J-aggregate");
 
+addpower;
+set("name", "pabs");
+set("monitor type",5); # 2D-x normal (hopefully)
+set("x",0);
+set("y", 0);
+set("y span",5e-6);
+set("z",0);
+set("z span",5e-6);
+
 transmission = getresult("transmission", "T")
+?getresult("reflection");
 reflection = getresult("reflection", "T")
 wavelength = transmission.wavelength
 
-absorption = 1 - transmission.T - reflection.R
+absorption = 1 - transmission.T - reflection.T
 
 plot(wavelength, absorption, "wavelength", "absorption", "absorption spectrum") #?
 # excinction - wavelength graph => extinction = (absorbtion+scattering)
