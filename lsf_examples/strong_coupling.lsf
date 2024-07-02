@@ -69,8 +69,8 @@ set("z span",5e-11);
 
 set("cover", "material", "J-aggregate");
 
-transmission = getresult("transmission_monitor", "T")
-reflection = getresult("reflection_monitor", "R")
+transmission = getresult("transmission", "T")
+reflection = getresult("reflection", "T")
 wavelength = transmission.wavelength
 
 absorption = 1 - transmission.T - reflection.R
