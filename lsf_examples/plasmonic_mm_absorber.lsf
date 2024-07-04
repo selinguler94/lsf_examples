@@ -1,1 +1,41 @@
+addfdtd;
+set("dimension",2);
+set("x",0);
+set("x span",);
+set("y",0);
+set("y span",0);
+set(z",0);
+set("z span",);
 
+if(getresult("FDTD","status")==0) {
+  run;
+}
+
+addrect;
+set("name", "bottom_metal");
+set("material",);
+
+addrect;
+set("name", "dielectric");
+set("material",);
+
+addrect;
+set("name", "top_metal");
+set("material",);
+
+# boundary conditions
+
+# adding power monitors for R and T
+
+addpower;
+
+freq = getdata('R','f');         # frequency data
+lambda = c*1e6/f                 # convert to wavelength
+T = -transmission('T');
+R = transmission('R');
+?A = 1 - R - T;                  # define absorption and return result with ?
+
+#plotting R/T/A
+
+plot(lambda,R,T,A,'wavelength','R/T/A');
+legend('R','T','A');
