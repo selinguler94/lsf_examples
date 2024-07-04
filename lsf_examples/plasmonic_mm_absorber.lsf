@@ -29,7 +29,7 @@ set("material",);
 
 addpower;
 
-freq = getdata('R','f');         # frequency data
+f = getdata('R','f');         # frequency data
 lambda = c*1e6/f                 # convert to wavelength
 T = -transmission('T');
 R = transmission('R');
