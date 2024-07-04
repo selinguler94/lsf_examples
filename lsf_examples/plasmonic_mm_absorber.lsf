@@ -27,7 +27,7 @@ set("material",);
 
 # adding power monitors for R and T
 
-addpower;
+addpower;        #a plane wave
 
 f = getdata('R','f');            # frequency data
 lambda = c*1e6/f                 # convert to wavelength
