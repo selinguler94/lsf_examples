@@ -73,6 +73,9 @@ wavelength = transmission.wavelength
 
 absorption = 1 - transmission.T - reflection.T # A = 1 - T - R
 
+# addsweep;
+
+
 plot(wavelength, absorption, "wavelength", "absorption", "absorption spectrum") #?
 # excinction - wavelength graph => extinction = (absorbtion+scattering)
 setplot("y min",);
