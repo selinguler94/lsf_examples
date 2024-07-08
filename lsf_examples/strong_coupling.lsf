@@ -30,18 +30,6 @@ set("z span", );
 set("wavelength start", );
 set("wavelength stop", );
 
-#definitions
-freq_p = ;
-linewidth_p = ;
-g =;
-
-freq_e=;
-linewidth_e;
-
-trans_int =;
-incident_int=;
-
-extinct=1-(trans_int/incident_int)
 
 addcircle;
 set("name", "disk");
