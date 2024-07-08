@@ -83,7 +83,3 @@ setplot("y min",);
 
 
 plot(extinct,wavelength,
-#addlayerbuilder;
-#addlayer("layer_1");
-#setlayer("layer_1","thickness",500e-9);
-#setlayer("layer_1","material","Si (Silicon) - Palik");
