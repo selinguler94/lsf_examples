@@ -23,6 +23,17 @@ addrect;
 set("name", "top_metal");
 set("material",);
 
+addplane;
+set("injection axis","z");
+set("direction","forward");
+set("x",0);
+set("x span",2e-6);
+set("y",0);
+set("y span",5e-6);
+set("z",3e-6);
+set("wavelength start",5e-7);
+set("wavelength stop",7e-7);
+
 # boundary conditions
 
 # adding power monitors for R and T
