@@ -40,7 +40,7 @@ set("z",0);
 set("z span",1e-6);
 set("material", "Ag (Silver) - Palik (0-2um)");
 
-#J-Aggregate
+# define J-Aggregate
 
 new_material = addmaterial('Dielectric');
 setmaterial('new_material','name','J-aggregate');
