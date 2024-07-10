@@ -73,15 +73,23 @@ wavelength = transmission.wavelength
 
 absorption = 1 - transmission.T - reflection.T # A = 1 - T - R
 
-# addsweep;
+addsweep(0);
+setsweep("sweep", "name", "thickness_sweep");
+setsweep("thickness_sweep", "type", "Ranges"); #ranges because we'll plot with selected points.
+setsweep("thickness_sweep", "number of points", Values);
 
+param = struct;
+param.Name = "thickness";
+param.Parameter = "::model::AR structure::thickness";
+param.Type = "Length";
+param.Start = 0.05e-6;
+param.Stop = 0.15e-6;
+param.Units = "nanometer";
+
+addsweepparameter("thickness_sweep_script", param);
 
 plot(wavelength, absorption, "wavelength", "absorption", "absorption spectrum") #?
 # excinction - wavelength graph => extinction = (absorbtion+scattering)
-setplot("y min",);
-setplot("y max",);
-setplot("x min",);
-setplot("y min",);
 
 
 
