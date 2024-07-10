@@ -75,6 +75,7 @@ wavelength = transmission.wavelength
 
 absorption = 1 - transmission.T - reflection.T # A = 1 - T - R
 
+
 addsweep(0);
 setsweep("sweep", "name", "coupling_strength");
 setsweep("coupling_strength", "type", "Ranges"); #ranges because we'll plot with selected points.
