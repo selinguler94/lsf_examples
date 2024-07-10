@@ -57,14 +57,16 @@ set("z span",5e-11);
 
 set("cover", "material", "J-aggregate");
 
-addpower;
-set("name", "pabs");
-set("monitor type",5); # 2D-x normal (hopefully)
+addplane;
+set("injection axis","z");
+set("direction","forward");
 set("x",0);
-set("y", 0);
+set("x span",2e-6);
+set("y",0);
 set("y span",5e-6);
-set("z",0);
-set("z span",5e-6);
+set("z",3e-6);
+set("wavelength start",5e-7);
+set("wavelength stop",7e-7);
 
 transmission = getresult("transmission", "T")
 ?getresult("reflection");
@@ -74,17 +76,15 @@ wavelength = transmission.wavelength
 absorption = 1 - transmission.T - reflection.T # A = 1 - T - R
 
 addsweep(0);
-setsweep("sweep", "name", "thickness_sweep");
-setsweep("thickness_sweep", "type", "Ranges"); #ranges because we'll plot with selected points.
-setsweep("thickness_sweep", "number of points", Values);
+setsweep("sweep", "name", "coupling_strength");
+setsweep("coupling_strength", "type", "Ranges"); #ranges because we'll plot with selected points.
+setsweep("coupling_strength", "number of points", Values);
 
 param = struct;
-param.Name = "thickness";
-param.Parameter = "::model::AR structure::thickness";
-param.Type = "Length";
-param.Start = 0.05e-6;
-param.Stop = 0.15e-6;
-param.Units = "nanometer";
+param.Name = "strength";
+param.Type = " ";
+param.Start = 0;
+param.Stop = 0.05;
 
 addsweepparameter("thickness_sweep_script", param);
 
