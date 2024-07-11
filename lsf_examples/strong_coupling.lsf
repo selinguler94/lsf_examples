@@ -12,12 +12,6 @@ if(getresult("FDTD","status")==0) {
   run;
 }
 # to avoid "simulation already running"?
-
-# we set true the ones we want to perform
-do_polar_plot = true;
-do_cross_sections = true;
-do_field_enhancement = false; #?
-
 addtfsf;
 set("injection axis", "z");
 set("direction", "forward");
