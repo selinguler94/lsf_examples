@@ -6,6 +6,7 @@ set("y",0);
 set("y span",2e-5);
 set("z",0);
 set("z span",1e-5);
+
 # set periodic boundary conditions (if there's any)
 
 if(getresult("FDTD","status")==0) {
@@ -24,7 +25,6 @@ set("z span", );
 set("wavelength start", );
 set("wavelength stop", );
 
-
 addcircle;
 set("name", "disk");
 set("x",2e-6);
@@ -36,7 +36,9 @@ set("material", "Ag (Silver) - Palik (0-2um)");
 
 # define J-Aggregate
 
-JA_index = bg_index + f_0*(w_0^2 / (w_0^2 - w^2 - i*coupling_strength*w))
+JA_index = (bg_index + f_0*(w_0^2 / (w_0^2 - w^2 - i*coupling_strength*w)))^0.5
+w_0 = 5.87e-7
+bg_index = 2.1
 
 new_material = addmaterial('Dielectric');
 setmaterial('new_material','name','J_aggregate');
@@ -68,7 +70,9 @@ param.Type = " ";
 param.Start = 0;
 param.Stop = 0.05;
 
-addsweepparameter("thickness_sweep_script", param);
+values = [0, 0.005, 0.0075, 0.01, 0.02, 0.03, 0.04, 0.05]
+
+addsweepparameter("coupling_strength", param);
 
 plot(wavelength, absorption, "wavelength", "absorption", "absorption spectrum") #?
 # excinction - wavelength graph => extinction = (absorbtion+scattering)
