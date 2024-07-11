@@ -42,10 +42,12 @@ set("material", "Ag (Silver) - Palik (0-2um)");
 
 # define J-Aggregate
 
+JA_index = bg_index + f_0*(w_0^2 / (w_0^2 - w^2 - i*coupling_strength*w))
+
 new_material = addmaterial('Dielectric');
-setmaterial('new_material','name','J-aggregate');
-setmaterial('new_material','refractive_index',1.5);
-setmaterial('new_material',' );
+setmaterial('new_material','name','J_aggregate');
+setmaterial('J_aggregate','refractive_index',JA_index);
+setmaterial('J_aggregate',' );
 
 addcircle;
 set("name","cover");
@@ -57,17 +59,6 @@ set("z span",5e-11);
 
 set("cover", "material", "J-aggregate");
 
-addplane;
-set("injection axis","z");
-set("direction","forward");
-set("x",0);
-set("x span",2e-6);
-set("y",0);
-set("y span",5e-6);
-set("z",3e-6);
-set("wavelength start",5e-7);
-set("wavelength stop",7e-7);
-
 transmission = getresult("transmission", "T")
 ?getresult("reflection");
 reflection = getresult("reflection", "T")
@@ -75,6 +66,9 @@ wavelength = transmission.wavelength
 
 absorption = 1 - transmission.T - reflection.T # A = 1 - T - R
 
+sigmaabs = getresult("abs","sigma");
+sigmascat = getresult("scat","sigma");
+sigmaext = -sigmaabs + sigmascat
 
 addsweep(0);
 setsweep("sweep", "name", "coupling_strength");
