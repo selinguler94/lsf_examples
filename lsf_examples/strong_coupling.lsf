@@ -57,14 +57,7 @@ set("radius",5e-6);
 set("z",0.5e-6);
 set("z span",5e-11);
 
-set("cover", "material", "J-aggregate");
-
-transmission = getresult("transmission", "T")
-?getresult("reflection");
-reflection = getresult("reflection", "T")
-wavelength = transmission.wavelength
-
-absorption = 1 - transmission.T - reflection.T # A = 1 - T - R
+# set("cover", "material", "J-aggregate");
 
 sigmaabs = getresult("abs","sigma");
 sigmascat = getresult("scat","sigma");
