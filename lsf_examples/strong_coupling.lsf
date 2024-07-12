@@ -85,7 +85,4 @@ runsweep("coupling_strength");
 #plot
 values = [0, 0.005, 0.0075, 0.01, 0.02, 0.03, 0.04, 0.05]
 plot(lambda, ext, "Extinction", "Wavelength (nm)") #?
-
-
-
-plot(extinct,wavelength,
+# legend(values)
