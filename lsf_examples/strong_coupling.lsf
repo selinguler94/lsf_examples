@@ -31,7 +31,7 @@ lambda = c*1e6/f
 JA_index = sqrt(bg_index + f_0*(w_0^2 / (w_0^2 - w^2 - coupling_strength*wi)))
 w_0 = 5.87e-7 #assign its unit
 bg_index = 2.1
-w = 
+w = 2*pi*f
 
 new_material = addmaterial('Dielectric');
 setmaterial('new_material','name','J_aggregate');
