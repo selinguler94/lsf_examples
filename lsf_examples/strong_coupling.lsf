@@ -26,7 +26,7 @@ set("material", "Ag (Silver) - Palik (0-2um)");
 f = getdata('R','f');           
 lambda = c*1e6/f  
 
-# define J-Aggregate
+######   define J-Aggregate   ######
 
 JA_index = sqrt(bg_index + f_0*(w_0^2 / (w_0^2 - w^2 - coupling_strength*wi)))
 w_0 = 5.87e-7 #assign its unit
@@ -46,6 +46,8 @@ set("radius",5e-6);
 set("z",0.5e-6);
 set("z span",5e-11);
 set("material", "J-aggregate");
+
+#################
 
 addtfsf;
 set("injection axis", "z");
