@@ -79,8 +79,19 @@ param.Start = 0;
 param.Stop = 0.05;
 
 
-addsweepparameter("coupling_strength", param);
-runsweep("coupling_strength");
+addsweepparameter("thickness_sweep", para);
+
+result_1 = struct;
+result_1.Name = "R";
+result_1.Result = "::model::monitor::T";
+
+addsweepresult("thickness_sweep_script", result_1);
+
+runsweep("thickness_sweep");
+
+T = getsweepresult("thickness_sweep", "T");
+f = getdata("R", "f");
+plot(T, c*1e6/f, "transmission", "wavelength");
 
 #plot
 values = [0, 0.005, 0.0075, 0.01, 0.02, 0.03, 0.04, 0.05]
