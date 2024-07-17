@@ -1,0 +1,13 @@
+
+
+
+
+# define
+
+material = addmaterial("Lorentz");
+setmaterial("material","name","J-aggregate");
+setmaterial("J-aggregate","Permittivity");
+setmaterial("J-aggregate","Lorentz Permittivity");
+setmaterial("J-aggregate","
+
+
